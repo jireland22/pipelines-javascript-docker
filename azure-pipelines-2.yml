@@ -53,8 +53,7 @@ stages:
   - deployment: Deploy
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
+    pool: myAgentPool
     environment: 'jireland22pipelinesjavascriptdocker-7740.default'
     strategy:
       runOnce:
@@ -82,9 +81,8 @@ stages:
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
-    pool:
-      vmImage: $(vmImageName)
-
+    pool: myAgentPool
+     
     environment: 'jireland22pipelinesjavascriptdocker-7740.$(k8sNamespaceForPR)'
     strategy:
       runOnce:
