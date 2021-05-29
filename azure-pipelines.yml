@@ -19,7 +19,7 @@ variables:
   imagePullSecret: 'mycontainerregistryji622a-auth'
 
   # Agent VM image name
-  vmImageName: 'DESKTOP-R8TCUHD'
+  vmImageName: 'Default'
 
   # Name of the new namespace being created to deploy the PR changes.
   k8sNamespaceForPR: 'review-app-$(System.PullRequest.PullRequestId)'
