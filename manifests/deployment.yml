@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: jirelandpipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jirelandpipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: jirelandpipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: jirelandpipelinesjavascriptdocker 
+          image: mycontainerregistryji.azurecr.io/jirelandpipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
